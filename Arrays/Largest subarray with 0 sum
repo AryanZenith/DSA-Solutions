@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    int maxLength(vector<int>& arr) {
+        // code here
+        int maxlen=0;
+        int prefixsum=0;
+        
+        unordered_map<int,int>mp;
+        mp[0]=-1;
+        for(int i=0;i<arr.size();i++){
+            prefixsum+=arr[i];
+            
+            if(mp.find(prefixsum)!=mp.end()){
+                maxlen=max(maxlen,i-mp[prefixsum]);
+            }
+            else{
+               mp[prefixsum]=i;
+            }
+        }
+        return maxlen;
+    }
+};
