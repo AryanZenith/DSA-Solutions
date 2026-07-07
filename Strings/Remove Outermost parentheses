@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        string ans="";
+        stack<char>st;
+        for(auto it:s){
+           if(it=='('){
+            if(!st.empty()){
+                ans+=it;
+            }
+                st.push(it);
+           }
+           else{
+            st.pop();
+            if(!st.empty()){
+                ans+=it;
+            }
+
+           }
+        }
+        return ans;
+    }
+};
