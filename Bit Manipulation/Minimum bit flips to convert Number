@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int minBitFlips(int start, int goal) {
+        int count=0;
+        // we have to calculate the xor and count the no of ones in the result of diff bit ;
+        int diff = start^goal;
+        while(diff>0){
+            count+=diff & 1;
+            diff>>=1;
+        }
+        return count;
+    }
+};
